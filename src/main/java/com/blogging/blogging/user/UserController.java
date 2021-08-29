@@ -21,12 +21,17 @@ public class UserController {
     }
 
     @PostMapping("/")
-    public void addUser(@RequestBody User user){
+    public void addUser(@RequestBody User user) {
         userService.addUser(user);
     }
 
-    @PutMapping(path="{id}")
-    public void updateUser(@PathVariable("id") Long id, @RequestBody User body){
-        userService.updateUser(id,body);
+    @DeleteMapping(path="{id}")
+    public void deleteUser(@PathVariable("id") Long id){
+        userService.deleteUser(id);
+    }
+
+    @PutMapping(path = "{id}")
+    public void updateUser(@PathVariable("id") Long id, @RequestBody User body) {
+        userService.updateUser(id, body);
     }
 }
